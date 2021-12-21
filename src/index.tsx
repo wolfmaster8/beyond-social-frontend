@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Toaster } from "react-hot-toast";
 import "./styles/theme/index.css";
 import "./styles/theme/reset.css";
 import App from "./App";
@@ -7,6 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
+    <Toaster />
     <App />
   </React.StrictMode>,
   document.getElementById("root")
