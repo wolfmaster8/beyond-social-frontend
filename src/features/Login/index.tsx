@@ -6,8 +6,10 @@ import DataEntry from "../../shared/components/DataEntry";
 import { LoginContainer } from "./styles";
 import BeyondSocialLogo from "../../assets/branding/beyond-social-logo.svg";
 import LoginImage from "../../assets/images/hi5.png";
+import useLoginController from "./useLoginController";
 
 export default function Login() {
+  const { handleSubmitForm, handleSetForm } = useLoginController();
   return (
     <>
       <HelmetContainer pageTitle="Login" />
@@ -17,13 +19,18 @@ export default function Login() {
             <b>Beyond Social</b>
           </h1>
           <p className="text-blue-500 body-short-2">
-            Inicia sesión en la red <b>#1 en el Metaverso</b>
+            Entra a la red <b>#1 en el Metaverso</b>
           </p>
-          <form>
-            <DataEntry.Input name="username" label="Username" />
+          <form onSubmit={handleSubmitForm}>
+            <DataEntry.Input
+              name="username"
+              onChange={handleSetForm}
+              label="Username"
+            />
             <DataEntry.Input
               name="password"
               label="Contraseña"
+              onChange={handleSetForm}
               type="password"
             />
             <General.Button>Iniciar Sesión</General.Button>

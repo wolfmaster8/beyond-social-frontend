@@ -32,7 +32,7 @@ export const cleanRequestInterceptor = () => {
 apiService.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.config.url === "/users/login") {
+    if (error.config.url === "/auth/login") {
       throw error;
     }
     return new Promise((resolve, reject) => {

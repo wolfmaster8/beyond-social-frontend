@@ -40,7 +40,8 @@ export const LoginContainer = styled.main`
       }
     }
     .logo {
-      width: 200px;
+      width: 220px;
+      height: auto;
     }
     img {
       animation: float 6s ease-in-out infinite;
