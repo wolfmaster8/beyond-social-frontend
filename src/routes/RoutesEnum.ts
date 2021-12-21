@@ -1,6 +1,6 @@
 enum RoutesEnum {
-  login = "login",
-  register = "register",
+  login = "/login",
+  register = "/register",
   main = "/",
 }
 

@@ -4,6 +4,7 @@ import RoutesEnum from "./RoutesEnum";
 import Login from "../features/Login";
 import Home from "../features/Home";
 import Auth from "../shared/components/Auth";
+import Register from "../features/Register";
 
 function AppRoutes() {
   return (
@@ -18,7 +19,7 @@ function AppRoutes() {
           }
         />
         <Route path={RoutesEnum.login} element={<Login />} />
-        <Route path={RoutesEnum.register} element={<h1>Register</h1>} />
+        <Route path={RoutesEnum.register} element={<Register />} />
 
         {/* <Route path="*" element={<NoMatch />} /> */}
       </Routes>

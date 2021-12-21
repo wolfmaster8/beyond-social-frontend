@@ -6,6 +6,8 @@ export const InputContainer = styled.div`
 `;
 
 export const TextInputStyled = styled.input`
+  width: 100%;
+  box-sizing: border-box;
   border: 2px;
   border-radius: ${({ theme }) => theme.borderRadius};
   margin-top: 0.25rem;
