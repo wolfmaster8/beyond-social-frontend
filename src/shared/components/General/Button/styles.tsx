@@ -10,28 +10,20 @@ export const ButtonStyled = styled.button`
   transition: all 0.2s;
   font-weight: 600;
 
+  &:focus {
+    outline: 2px solid ${({ theme }) => theme.colors.light.blue[700]};
+  }
+
   &:disabled {
     cursor: not-allowed;
   }
 
   &.primary {
-    background-color: ${({ theme }) => theme.colors.light.blue[600]};
+    background-color: ${({ theme }) => theme.colors.light.blue[500]};
     color: ${({ theme }) => theme.colors.light.blue[100]};
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.light.blue[500]};
-    }
-    &:disabled {
-      background-color: ${({ theme }) => theme.colors.light.blue[200]};
-      color: ${({ theme }) => theme.colors.light.blue[400]};
-    }
-  }
 
-  &.secondary {
-    color: ${({ theme }) => theme.colors.light.blue[600]};
-    background-color: ${({ theme }) => theme.colors.light.blue[100]};
     &:hover {
-      background-color: ${({ theme }) => theme.colors.light.blue[200]};
-      color: ${({ theme }) => theme.colors.light.blue[900]};
+      background-color: ${({ theme }) => theme.colors.light.blue[400]};
     }
     &:disabled {
       background-color: ${({ theme }) => theme.colors.light.blue[100]};
@@ -39,18 +31,31 @@ export const ButtonStyled = styled.button`
     }
   }
 
+  &.secondary {
+    color: ${({ theme }) => theme.colors.light.blue[500]};
+    background-color: ${({ theme }) => theme.colors.light.blue[50]};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.light.blue[100]};
+      color: ${({ theme }) => theme.colors.light.blue[800]};
+    }
+    &:disabled {
+      background-color: ${({ theme }) => theme.colors.light.blue[50]};
+      color: ${({ theme }) => theme.colors.light.blue[200]};
+    }
+  }
+
   &.link {
-    color: ${({ theme }) => theme.colors.light.blue[600]};
-    text-decoration: underline ${({ theme }) => theme.colors.light.blue[600]};
+    color: ${({ theme }) => theme.colors.light.blue[500]};
+    text-decoration: underline ${({ theme }) => theme.colors.light.blue[500]};
     background-color: transparent;
     &:hover {
       background-color: transparent;
-      color: ${({ theme }) => theme.colors.light.blue[900]};
-      text-decoration: underline ${({ theme }) => theme.colors.light.blue[900]};
+      color: ${({ theme }) => theme.colors.light.blue[800]};
+      text-decoration: underline ${({ theme }) => theme.colors.light.blue[800]};
     }
     &:disabled {
-      color: ${({ theme }) => theme.colors.light.blue[300]};
-      text-decoration: underline ${({ theme }) => theme.colors.light.blue[300]};
+      color: ${({ theme }) => theme.colors.light.blue[200]};
+      text-decoration: underline ${({ theme }) => theme.colors.light.blue[200]};
     }
   }
 `;

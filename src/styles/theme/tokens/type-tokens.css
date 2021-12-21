@@ -1,0 +1,133 @@
+
+/* Utility */
+
+.label-01{
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    letter-spacing: 0.02rem;
+}
+
+.caption-01{
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.02rem;
+}
+
+.overline-01{
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+
+
+
+/* Body */
+
+.body-short-01{
+    font-size: 0.857rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+    letter-spacing: 0.01rem;
+}
+
+.body-short-bold-1{
+    font-size: 0.857rem;
+    line-height: 1.125rem;
+    font-weight: 800;
+    letter-spacing: 0.01rem;
+}
+
+.body-short-02{
+    font-size: 1rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.body-long-01{
+    font-size: 0.857rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.01rem;
+}
+
+.body-long-02{
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+
+
+
+
+/* Headings */
+
+.heading-07{
+    font-size: 0.857rem;
+    line-height: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+    margin: 0;
+}
+
+.heading-06{
+    font-size: 1rem;
+    line-height: 1.375rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.heading-05{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.heading-04{
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.heading-03{
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.heading-02{
+    font-size: 2.625rem;
+    line-height: 3.125rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.heading-01{
+    font-size: 3.375rem;
+    line-height: 4rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+@media all and (max-width: 768px){
+    .heading-04{
+        font-size: 1.25rem;
+    }
+}
