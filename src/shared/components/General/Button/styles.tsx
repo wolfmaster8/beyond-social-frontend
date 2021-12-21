@@ -45,6 +45,7 @@ export const ButtonStyled = styled.button`
   }
 
   &.link {
+    padding: 0;
     color: ${({ theme }) => theme.colors.light.blue[500]};
     text-decoration: underline ${({ theme }) => theme.colors.light.blue[500]};
     background-color: transparent;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const LoginContainer = styled.main`
   display: grid;
   grid-template-areas: "form image";
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 35% 65%;
   min-height: 100vh;
   .form-section {
     display: flex;
@@ -47,6 +47,20 @@ export const LoginContainer = styled.main`
       object-fit: fill;
       max-width: 100%;
       height: auto;
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    grid-template-areas: "image" "form";
+    grid-template-columns: 100%;
+
+    .image {
+      .floating {
+        width: 200px;
+      }
+      img {
+        animation: none;
+      }
     }
   }
 `;
