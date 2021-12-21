@@ -6,6 +6,29 @@ export const apiService = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
+export const setRequestInterceptor = (): void => {
+  apiService.interceptors.request.use((config) => {
+    const accessToken = sessionStorage.getItem(SessionStorageKeysEnum.token);
+    const newConfig = { ...config };
+    if (newConfig.headers) {
+      newConfig.headers.Authorization = `Bearer ${accessToken}`;
+      newConfig.headers["Content-Type"] = "application/json";
+    }
+    return newConfig;
+  });
+};
+
+export const cleanRequestInterceptor = () => {
+  apiService.interceptors.request.use((config) => {
+    const newConfig = { ...config };
+    if (newConfig.headers) {
+      newConfig.headers.Authorization = "";
+      newConfig.headers["Content-Type"] = "application/json";
+    }
+    return newConfig;
+  });
+};
+
 apiService.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -39,26 +62,3 @@ apiService.interceptors.response.use(
     });
   }
 );
-
-export const setRequestInterceptor = (): void => {
-  apiService.interceptors.request.use((config) => {
-    const accessToken = sessionStorage.getItem(SessionStorageKeysEnum.token);
-    const newConfig = { ...config };
-    if (newConfig.headers) {
-      newConfig.headers.Authorization = `Bearer ${accessToken}`;
-      newConfig.headers["Content-Type"] = "application/json";
-    }
-    return newConfig;
-  });
-};
-
-export const cleanRequestInterceptor = () => {
-  apiService.interceptors.request.use((config) => {
-    const newConfig = { ...config };
-    if (newConfig.headers) {
-      newConfig.headers.Authorization = "";
-      newConfig.headers["Content-Type"] = "application/json";
-    }
-    return newConfig;
-  });
-};
