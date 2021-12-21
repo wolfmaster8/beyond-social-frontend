@@ -7,8 +7,10 @@ import BeyondSocialLogo from "../../assets/branding/beyond-social-logo.svg";
 import LoginImage from "../../assets/images/hi5.png";
 import { LoginContainer } from "../Login/styles";
 import Layout from "../../shared/components/Layout";
+import useRegisterController from "./useRegisterController";
 
 export default function Register() {
+  const { handleSetForm, handleSubmitForm } = useRegisterController();
   return (
     <>
       <HelmetContainer pageTitle="Registro" />
@@ -20,34 +22,38 @@ export default function Register() {
           <p className="text-blue-500 body-short-2">
             Haz parte de la red <b>#1 en el Metaverso</b>
           </p>
-          <form
-          // onSubmit={handleSubmitForm}
-          >
+          <form onSubmit={handleSubmitForm}>
             <Layout.Grid
               columns="1fr 1fr"
               gap="0.5rem"
               oneColumnOnMobile={false}
             >
               <DataEntry.Input
-                name="name"
-                // onChange={handleSetForm}
+                name="firstName"
+                onChange={handleSetForm}
                 label="Nombre"
               />
               <DataEntry.Input
                 name="lastName"
-                // onChange={handleSetForm}
+                onChange={handleSetForm}
                 label="Apellido"
               />
             </Layout.Grid>
             <DataEntry.Input
+              name="email"
+              label="Email"
+              onChange={handleSetForm}
+              type="email"
+            />
+            <DataEntry.Input
               name="username"
-              // onChange={handleSetForm}
+              onChange={handleSetForm}
               label="Username"
             />
             <DataEntry.Input
               name="password"
               label="Contraseña"
-              // onChange={handleSetForm}
+              onChange={handleSetForm}
               type="password"
             />
             <General.Button>Registrarse</General.Button>
