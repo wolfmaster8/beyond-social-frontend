@@ -8,7 +8,7 @@ export const apiService = axios.create({
 
 export const setRequestInterceptor = (): void => {
   apiService.interceptors.request.use((config) => {
-    const accessToken = sessionStorage.getItem(SessionStorageKeysEnum.token);
+    const accessToken = sessionStorage.getItem(SessionStorageKeysEnum.TOKEN);
     const newConfig = { ...config };
     if (newConfig.headers) {
       newConfig.headers.Authorization = `Bearer ${accessToken}`;
@@ -32,7 +32,7 @@ export const cleanRequestInterceptor = () => {
 apiService.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.config.url === "/users/login") {
+    if (error.config.url === "/auth/login") {
       throw error;
     }
     return new Promise((resolve, reject) => {
@@ -44,7 +44,7 @@ apiService.interceptors.response.use(
       ) {
         originalRequest.__isRetryRequest = true;
 
-        sessionStorage.removeItem(SessionStorageKeysEnum.token);
+        sessionStorage.removeItem(SessionStorageKeysEnum.TOKEN);
         cleanRequestInterceptor();
         if (window.location.pathname.split("/")[1] === "user") {
           toast.dismiss();

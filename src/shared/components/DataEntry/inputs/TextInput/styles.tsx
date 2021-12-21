@@ -2,9 +2,12 @@ import styled from "styled-components";
 
 export const InputContainer = styled.div`
   display: inline-grid;
+  margin-bottom: 1rem;
 `;
 
 export const TextInputStyled = styled.input`
+  width: 100%;
+  box-sizing: border-box;
   border: 2px;
   border-radius: ${({ theme }) => theme.borderRadius};
   margin-top: 0.25rem;

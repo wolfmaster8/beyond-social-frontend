@@ -5,6 +5,7 @@ const theme: DefaultTheme = {
   colors: {
     light: {
       blue: {
+        10: "var(--blue-10)",
         50: "var(--blue-50)",
         100: "var(--blue-100)",
         200: "var(--blue-200)",
