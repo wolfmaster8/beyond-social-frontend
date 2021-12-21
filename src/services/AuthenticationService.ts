@@ -1,6 +1,7 @@
 import { apiService } from "./apiService";
 import { UserLogInCredentialsDTO } from "../models/DTO/user/UserLogInCredentialsDTO";
 import UserTokenDTO from "../models/DTO/user/UserTokenDTO";
+import SessionStorageKeysEnum from "../shared/utils/enums/SessionStorageKeysEnum";
 
 export default class AuthenticationService {
   public static async login({
@@ -12,5 +13,13 @@ export default class AuthenticationService {
       password,
     });
     return Promise.resolve(data);
+  }
+
+  public static isUserAuthenticated(): boolean {
+    const hasSessionToken = sessionStorage.getItem(
+      SessionStorageKeysEnum.TOKEN
+    );
+
+    return Boolean(hasSessionToken);
   }
 }

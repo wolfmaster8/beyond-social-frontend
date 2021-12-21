@@ -14,9 +14,9 @@ export default function useLoginController() {
       password: values.password,
     });
     const bearerToken = `Bearer ${token}`;
-    sessionStorage.setItem(SessionStorageKeysEnum.token, bearerToken);
+    sessionStorage.setItem(SessionStorageKeysEnum.TOKEN, bearerToken);
     setRequestInterceptor();
-    navigate(RoutesEnum.register);
+    navigate(RoutesEnum.main);
   };
 
   const { values, handleSetForm, handleSubmitForm } =

@@ -1,5 +1,5 @@
 enum SessionStorageKeysEnum {
-  token = "token",
+  TOKEN = "token",
 }
 
 export default SessionStorageKeysEnum;

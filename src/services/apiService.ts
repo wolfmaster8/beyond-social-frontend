@@ -8,7 +8,7 @@ export const apiService = axios.create({
 
 export const setRequestInterceptor = (): void => {
   apiService.interceptors.request.use((config) => {
-    const accessToken = sessionStorage.getItem(SessionStorageKeysEnum.token);
+    const accessToken = sessionStorage.getItem(SessionStorageKeysEnum.TOKEN);
     const newConfig = { ...config };
     if (newConfig.headers) {
       newConfig.headers.Authorization = `Bearer ${accessToken}`;
@@ -44,7 +44,7 @@ apiService.interceptors.response.use(
       ) {
         originalRequest.__isRetryRequest = true;
 
-        sessionStorage.removeItem(SessionStorageKeysEnum.token);
+        sessionStorage.removeItem(SessionStorageKeysEnum.TOKEN);
         cleanRequestInterceptor();
         if (window.location.pathname.split("/")[1] === "user") {
           toast.dismiss();

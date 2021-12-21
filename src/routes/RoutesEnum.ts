@@ -1,6 +1,7 @@
 enum RoutesEnum {
-  login = "/",
+  login = "login",
   register = "register",
+  main = "/",
 }
 
 export default RoutesEnum;
