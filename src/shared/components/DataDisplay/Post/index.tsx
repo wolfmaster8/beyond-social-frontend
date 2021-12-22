@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import { UilCommentAlt, UilHeart } from "@iconscout/react-unicons";
 import PostEntity from "../../../../models/entity/PostEntity";
@@ -22,6 +22,7 @@ const defaultProps = {
 
 function Post({ post, loading }: PostProps) {
   const { user } = useUser();
+  const navigate = useNavigate();
   const [liked, setLiked] = useState(false);
   const [likedCount, setLikedCount] = useState(0);
   const { likePost } = useContext(PostContext);
@@ -58,10 +59,12 @@ function Post({ post, loading }: PostProps) {
 
   const likeButtonColor: ColorType = liked ? "red" : "blue";
 
+  const postUrl = `${RoutesEnum.post}/${post.id}`;
+
   const isLoading = loading || !post.id;
   return (
     <>
-      <PostLinkStyled to={`${RoutesEnum.post}/${post.id}`}>
+      <PostLinkStyled to={postUrl}>
         <PostStyled>
           <div className="post-content">
             {isLoading ? (
@@ -113,7 +116,7 @@ function Post({ post, loading }: PostProps) {
           <ActionItem
             icon={<UilCommentAlt />}
             count={post.comments?.length}
-            onClick={() => {}}
+            onClick={() => navigate(postUrl)}
           />
         )}
       </ActionsStyled>

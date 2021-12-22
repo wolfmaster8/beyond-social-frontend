@@ -21,6 +21,7 @@ export default function ViewPost() {
             onChange={handleSetForm}
             name="content"
             placeholder="Responde a este post..."
+            autoFocus
           />
         </div>
         <Layout.Flex justifyContent="flex-end">
