@@ -22,7 +22,7 @@ export function UserContextProvider({ children }: UserContextProps) {
 
   const getUserProfile = async () => {
     try {
-      const userProfile = await UserManager.getProfile();
+      const userProfile = await UserManager.getSelfProfile();
       setUser(userProfile);
     } catch (error: any) {
       if (error.response.data.message) {
