@@ -36,9 +36,10 @@ export default function useViewPostController() {
   const onSubmitComment = async () => {
     await PostManager.comment({ postId: Number(id), content: values.content });
     await handleGetPost();
+    cleanFormValues();
   };
 
-  const { values, handleSubmitForm, handleSetForm } =
+  const { values, handleSubmitForm, handleSetForm, cleanFormValues } =
     useForm<PostCommentRegisterDTO>({
       onSubmit: onSubmitComment,
       messages: {

@@ -18,6 +18,7 @@ export default function ViewPost() {
         <div className="comment-form">
           <DataDisplay.ProfileImage src="https://via.placeholder.com/200x200" />
           <DataEntry.TextArea
+            value={values.content ?? ""}
             onChange={handleSetForm}
             name="content"
             placeholder="Responde a este post..."

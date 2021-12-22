@@ -30,7 +30,7 @@ export default function useForm<FormStructure>({
     try {
       toast.loading(messages?.loading ?? "Cargando", { id: "form" });
       e.preventDefault();
-      await onSubmit();
+      onSubmit();
       toast.success(messages?.success ?? "¡Enviado!", { id: "form" });
     } catch (error: any) {
       if (error.response.data.message) {
