@@ -1,59 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../../shared/components/Layout";
 import HelmetContainer from "../../shared/components/HelmetContainer";
+import { PostContext } from "../../shared/contexts/PostContext";
 
 export default function Home() {
+  const { posts } = useContext(PostContext);
+  console.log({ posts });
   return (
     <Layout.AppLayout>
       <HelmetContainer pageTitle="Home" />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
-      <h1>Home</h1>
-      <p>jajaja</p>
-      <br />
     </Layout.AppLayout>
   );
 }

@@ -3,26 +3,18 @@ import { toast } from "react-hot-toast";
 import PostEntity from "../../models/entity/PostEntity";
 import PostManager from "../../managers/PostManager";
 
-type PostContextType = {
-  openPostModal: () => void;
-  closePostModal: () => void;
-  showModal: boolean;
+type HomeContextType = {
   posts: PostEntity[];
   getFeed: () => void;
 };
 
-export const PostContext = createContext({} as PostContextType);
+export const HomeContext = createContext({} as HomeContextType);
 
-type PostContextProps = {
+type HomeContextProps = {
   children: ReactNode;
 };
 
-export function PostContextProvider({ children }: PostContextProps) {
-  const [showModal, setShowModal] = useState(false);
-
-  const openPostModal = () => setShowModal(true);
-  const closePostModal = () => setShowModal(false);
-
+export function HomeContextProvider({ children }: HomeContextProps) {
   const [posts, setPosts] = useState<PostEntity[]>([]);
 
   useEffect(() => {
@@ -39,10 +31,8 @@ export function PostContextProvider({ children }: PostContextProps) {
   };
 
   return (
-    <PostContext.Provider
-      value={{ openPostModal, closePostModal, showModal, posts, getFeed }}
-    >
+    <HomeContext.Provider value={{ posts, getFeed }}>
       {children}
-    </PostContext.Provider>
+    </HomeContext.Provider>
   );
 }

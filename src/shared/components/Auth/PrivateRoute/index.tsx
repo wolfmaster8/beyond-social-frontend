@@ -14,8 +14,6 @@ export default function PrivateRoute({ children }: PrivateRouteProps) {
   const isLoggedIn = AuthenticationService.isUserAuthenticated();
   const location = useLocation();
 
-  console.log({ isLoggedIn });
-
   useEffect(() => {
     if (isLoggedIn) {
       setRequestInterceptor();
