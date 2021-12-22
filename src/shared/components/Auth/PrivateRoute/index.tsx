@@ -3,6 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import RoutesEnum from "../../../../routes/RoutesEnum";
 import AuthenticationService from "../../../../services/AuthenticationService";
 import { setRequestInterceptor } from "../../../../services/apiService";
+import { PostContextProvider } from "../../../contexts/PostContext";
 
 type PrivateRouteProps = {
   children: JSX.Element;
@@ -22,5 +23,5 @@ export default function PrivateRoute({ children }: PrivateRouteProps) {
 
   if (!isLoggedIn)
     return <Navigate to={RoutesEnum.login} state={{ from: location }} />;
-  return children;
+  return <PostContextProvider>{children}</PostContextProvider>;
 }
