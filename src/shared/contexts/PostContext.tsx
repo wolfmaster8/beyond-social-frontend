@@ -8,6 +8,7 @@ type PostContextType = {
   openPostModal: () => void;
   closePostModal: () => void;
   showModal: boolean;
+  isLoading: boolean;
   posts: PostEntity[];
   getFeed: () => void;
   likePost: ({ id }: GenericIdParameter) => void;
@@ -21,6 +22,7 @@ type PostContextProps = {
 
 export function PostContextProvider({ children }: PostContextProps) {
   const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const openPostModal = () => setShowModal(true);
   const closePostModal = () => setShowModal(false);
@@ -35,6 +37,7 @@ export function PostContextProvider({ children }: PostContextProps) {
     try {
       const feedPosts = await PostManager.feed();
       setPosts(feedPosts);
+      setIsLoading(false);
     } catch (e) {
       toast.error("Ocurrió un error al buscar tu feed");
     }
@@ -43,6 +46,7 @@ export function PostContextProvider({ children }: PostContextProps) {
   const likePost = async ({ id }: GenericIdParameter) => {
     try {
       await PostManager.like({ id });
+      await getFeed();
     } catch (e) {
       toast.error("No pudimos enviar tu like");
     }
@@ -57,6 +61,7 @@ export function PostContextProvider({ children }: PostContextProps) {
         posts,
         getFeed,
         likePost,
+        isLoading,
       }}
     >
       {children}

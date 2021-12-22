@@ -5,6 +5,7 @@ import Login from "../features/Login";
 import Home from "../features/Home";
 import Auth from "../shared/components/Auth";
 import Register from "../features/Register";
+import ViewPost from "../features/Post/ViewPost";
 
 function AppRoutes() {
   return (
@@ -15,6 +16,14 @@ function AppRoutes() {
           element={
             <Auth.PrivateRoute>
               <Home />
+            </Auth.PrivateRoute>
+          }
+        />
+        <Route
+          path={`${RoutesEnum.post}/:id`}
+          element={
+            <Auth.PrivateRoute>
+              <ViewPost />
             </Auth.PrivateRoute>
           }
         />

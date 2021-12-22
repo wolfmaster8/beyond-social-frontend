@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 import { UilCommentAlt, UilHeart } from "@iconscout/react-unicons";
 import PostEntity from "../../../../models/entity/PostEntity";
 import { ActionsStyled, PostLinkStyled, PostStyled } from "./styles";
@@ -11,9 +12,14 @@ import useUser from "../../../hooks/useUser";
 
 type PostProps = {
   post: PostEntity;
+  loading?: boolean;
 };
 
-export default function Post({ post }: PostProps) {
+const defaultProps = {
+  loading: true,
+};
+
+function Post({ post, loading }: PostProps) {
   const { user } = useUser();
   const [liked, setLiked] = useState(false);
   const [likedCount, setLikedCount] = useState(0);
@@ -41,54 +47,83 @@ export default function Post({ post }: PostProps) {
 
   useEffect(() => {
     setLikedCount(post.likes?.length ?? 0);
-  }, []);
+  }, [post.likes]);
 
   useEffect(() => {
     if (user.id) {
       handleUserLike();
     }
-  }, [user.id]);
+  }, [user.id, post.id]);
 
   const likeButtonColor: ColorType = liked ? "red" : "blue";
+
+  const isLoading = loading || !post.id;
   return (
     <>
       <PostLinkStyled to={`${RoutesEnum.post}/${post.id}`}>
         <PostStyled>
           <div className="post-content">
-            <img
-              className="profile-image"
-              src="https://via.placeholder.com/200x200"
-              alt=""
-            />
+            {isLoading ? (
+              <Skeleton className="profile-image" />
+            ) : (
+              <img
+                className="profile-image"
+                src="https://via.placeholder.com/200x200"
+                alt=""
+              />
+            )}
+
             <div className="post-content-text">
               <p className="label-1 text-blue-800">
-                <span>
-                  <b>{post.user?.firstName}</b>
-                </span>{" "}
-                <Link to={`${RoutesEnum.user}/${post.user?.username}`}>
-                  <span className="text-neutral-500">
-                    @{post.user?.username}
-                  </span>
-                </Link>
+                {isLoading ? (
+                  <Skeleton width={80} />
+                ) : (
+                  <>
+                    <span>
+                      <b>{post.user?.firstName}</b>
+                    </span>
+                    <Link to={`${RoutesEnum.user}/${post.user?.username}`}>
+                      <span className="text-neutral-500">
+                        @{post.user?.username}
+                      </span>
+                    </Link>
+                  </>
+                )}{" "}
               </p>
-              <p className="body-long-2">{post.content}</p>
+              {isLoading ? (
+                <Skeleton count={3} width={350} />
+              ) : (
+                <p className="body-long-2">{post.content}</p>
+              )}
             </div>
           </div>
         </PostStyled>
       </PostLinkStyled>
       <ActionsStyled>
-        <ActionItem
-          color={likeButtonColor}
-          icon={<UilHeart />}
-          count={likedCount}
-          onClick={handleLikePost}
-        />
-        <ActionItem
-          icon={<UilCommentAlt />}
-          count={post.comments?.length}
-          onClick={() => {}}
-        />
+        {isLoading ? (
+          <Skeleton circle width={24} height={24} />
+        ) : (
+          <ActionItem
+            color={likeButtonColor}
+            icon={<UilHeart />}
+            count={likedCount}
+            onClick={handleLikePost}
+          />
+        )}
+        {isLoading ? (
+          <Skeleton circle width={24} height={24} />
+        ) : (
+          <ActionItem
+            icon={<UilCommentAlt />}
+            count={post.comments?.length}
+            onClick={() => {}}
+          />
+        )}
       </ActionsStyled>
     </>
   );
 }
+
+Post.defaultProps = defaultProps;
+
+export default Post;

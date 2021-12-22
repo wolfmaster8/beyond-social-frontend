@@ -14,6 +14,11 @@ export default class PostService {
     return Promise.resolve(data);
   }
 
+  public static async get({ id }: GenericIdParameter): Promise<PostEntity> {
+    const { data } = await apiService.get(`/posts/${id}`);
+    return Promise.resolve(data);
+  }
+
   public static async like({ id }: GenericIdParameter): Promise<void> {
     await apiService.post(`/posts/${id}/like`);
     return Promise.resolve();

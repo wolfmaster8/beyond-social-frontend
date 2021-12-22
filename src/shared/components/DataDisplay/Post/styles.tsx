@@ -41,4 +41,7 @@ export const ActionsStyled = styled.div`
   align-items: center;
   margin-left: 5.5rem;
   margin-bottom: 1rem;
+  .react-loading-skeleton {
+    margin-right: 1rem;
+  }
 `;

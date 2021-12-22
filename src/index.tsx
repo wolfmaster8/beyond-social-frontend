@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Toaster } from "react-hot-toast";
 import "@reach/dialog/styles.css";
+import "react-loading-skeleton/dist/skeleton.css";
 import "./styles/theme/index.css";
 import "./styles/theme/reset.css";
 import App from "./App";

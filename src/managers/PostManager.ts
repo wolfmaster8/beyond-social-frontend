@@ -13,6 +13,10 @@ export default class PostManager {
     return PostService.feed();
   }
 
+  public static async get({ id }: GenericIdParameter): Promise<PostEntity> {
+    return PostService.get({ id });
+  }
+
   public static async like({ id }: GenericIdParameter): Promise<void> {
     return PostService.like({ id });
   }
