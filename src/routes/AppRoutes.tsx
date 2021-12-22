@@ -6,6 +6,7 @@ import Home from "../features/Home";
 import Auth from "../shared/components/Auth";
 import Register from "../features/Register";
 import ViewPost from "../features/Post/ViewPost";
+import ViewProfileWrapper from "../features/Profile/ViewProfile";
 
 function AppRoutes() {
   return (
@@ -24,6 +25,14 @@ function AppRoutes() {
           element={
             <Auth.PrivateRoute>
               <ViewPost />
+            </Auth.PrivateRoute>
+          }
+        />
+        <Route
+          path={`${RoutesEnum.user}/:username`}
+          element={
+            <Auth.PrivateRoute>
+              <ViewProfileWrapper />
             </Auth.PrivateRoute>
           }
         />

@@ -6,8 +6,12 @@ export const ModalStyled = styled(Dialog)`
   padding: 0;
   .modal-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     padding: 0.5rem;
+    h2 {
+      margin-left: 1.5rem;
+    }
   }
 
   .modal-content {

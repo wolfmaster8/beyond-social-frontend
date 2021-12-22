@@ -5,6 +5,7 @@ import UserManager from "../../managers/UserManager";
 
 type UserContextType = {
   user: UserEntity;
+  getUserProfile: () => void;
 };
 
 export const UserContext = createContext({} as UserContextType);
@@ -22,7 +23,7 @@ export function UserContextProvider({ children }: UserContextProps) {
 
   const getUserProfile = async () => {
     try {
-      const userProfile = await UserManager.getProfile();
+      const userProfile = await UserManager.getSelfProfile();
       setUser(userProfile);
     } catch (error: any) {
       if (error.response.data.message) {
@@ -32,6 +33,8 @@ export function UserContextProvider({ children }: UserContextProps) {
   };
 
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, getUserProfile }}>
+      {children}
+    </UserContext.Provider>
   );
 }
