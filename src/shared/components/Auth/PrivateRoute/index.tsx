@@ -5,6 +5,7 @@ import AuthenticationService from "../../../../services/AuthenticationService";
 import { setRequestInterceptor } from "../../../../services/apiService";
 import { PostContextProvider } from "../../../contexts/PostContext";
 import CreatePost from "../../../../features/Post/CreatePost";
+import { UserContextProvider } from "../../../contexts/UserContext";
 
 type PrivateRouteProps = {
   children: JSX.Element;
@@ -19,8 +20,10 @@ export default function PrivateRoute({ children }: PrivateRouteProps) {
   setRequestInterceptor();
 
   return (
-    <PostContextProvider>
-      {children} <CreatePost />
-    </PostContextProvider>
+    <UserContextProvider>
+      <PostContextProvider>
+        {children} <CreatePost />
+      </PostContextProvider>
+    </UserContextProvider>
   );
 }
