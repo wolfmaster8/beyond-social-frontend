@@ -5,6 +5,7 @@ import Layout from "../../../shared/components/Layout";
 import { CommentsForm } from "./styles";
 import DataEntry from "../../../shared/components/DataEntry";
 import General from "../../../shared/components/General";
+import HelmetContainer from "../../../shared/components/HelmetContainer";
 
 export default function ViewPost() {
   const { post, isLoading, handleSubmitForm, values, handleSetForm } =
@@ -13,6 +14,7 @@ export default function ViewPost() {
   const isPublishButtonDisabled = !values.content;
   return (
     <Layout.AppLayout>
+      <HelmetContainer pageTitle="Post" />
       <DataDisplay.Post post={post} loading={isLoading} />
       <CommentsForm onSubmit={handleSubmitForm}>
         <div className="comment-form">

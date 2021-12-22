@@ -12,7 +12,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       <div className="container">
         <section className="body">
           <h1 className="text-blue-700 body-long-2 page-title">
-            <b>Home</b>
+            <b>Beyond Social</b>
           </h1>
           {children}
         </section>

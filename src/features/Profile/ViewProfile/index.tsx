@@ -10,6 +10,7 @@ import {
   ViewProfileContextProvider,
 } from "./ViewProfileContext";
 import EditProfileModal from "./components/EditProfileModal";
+import HelmetContainer from "../../../shared/components/HelmetContainer";
 
 function ViewProfile() {
   const { user } = useUser();
@@ -20,6 +21,7 @@ function ViewProfile() {
   const canUpdateProfile = isProfileFormLoggedUser && !isLoading;
   return (
     <Layout.AppLayout>
+      <HelmetContainer pageTitle="Perfil" />
       <ProfileStyled>
         {isLoading ? (
           <Skeleton circle width={120} height={120} />
