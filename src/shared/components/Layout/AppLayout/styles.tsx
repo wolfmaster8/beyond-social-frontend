@@ -22,10 +22,14 @@ export const AppLayoutStyled = styled.main`
 
   @media all and (max-width: 768px) {
     min-height: auto;
+    padding: 0 1rem;
     .container {
       grid-template-areas: "body" "sidebar";
       grid-template-columns: 1fr;
       grid-template-rows: 10fr 1fr;
+    }
+    .body {
+      margin: 0;
     }
   }
 `;

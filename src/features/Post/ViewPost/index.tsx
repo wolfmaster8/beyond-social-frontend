@@ -32,7 +32,7 @@ export default function ViewPost() {
       </CommentsForm>
       {!post.comments?.length ? (
         <Layout.Flex justifyContent="center">
-          <p className="text-blue-500 label-1">
+          <p className="text-blue-500 label-1 text-center">
             No hay comentarios. ¡Sé la primera persona en comentar!
           </p>
         </Layout.Flex>

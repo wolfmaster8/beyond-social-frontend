@@ -42,6 +42,14 @@ export const AsideStyled = styled.nav`
       align-items: center;
       justify-content: space-around;
       border-top: 1px solid ${({ theme }) => theme.colors.light.blue[50]};
+
+      .profile {
+        margin-bottom: 0;
+        img {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
     }
   }
 `;
