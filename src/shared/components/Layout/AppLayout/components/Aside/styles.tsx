@@ -15,7 +15,6 @@ export const AsideStyled = styled.nav`
   .sidebar-content {
     position: sticky;
     top: 2rem;
-    //background-color: ${({ theme }) => theme.colors.light.blue[100]};
     border-radius: ${({ theme }) => theme.borderRadius};
     display: flex;
     flex-direction: column;
@@ -27,6 +26,31 @@ export const AsideStyled = styled.nav`
       height: 3rem;
       border-radius: 50px;
       margin-bottom: 1rem;
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    margin: 0;
+    .icon {
+      margin-bottom: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    .sidebar-content {
+      background-color: ${({ theme }) => theme.colors.light.neutral.white};
+      min-width: 100%;
+      position: fixed;
+      bottom: 0;
+      top: unset;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      border-top: 1px solid ${({ theme }) => theme.colors.light.blue[50]};
+      .profile-image {
+        margin-bottom: 0;
+        width: 2rem;
+        height: 2rem;
+      }
     }
   }
 `;

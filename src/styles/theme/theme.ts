@@ -18,6 +18,7 @@ const theme: DefaultTheme = {
         900: "var(--blue-900)",
       },
       neutral: {
+        white: "var(--neutral-white)",
         50: "var(--neutral-50)",
         100: "var(--neutral-100)",
         200: "var(--neutral-200)",

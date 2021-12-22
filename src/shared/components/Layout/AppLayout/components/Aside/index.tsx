@@ -6,8 +6,6 @@ import BeyondSocialIcon from "../../../../../../assets/branding/beyond-social-ic
 import RoutesEnum from "../../../../../../routes/RoutesEnum";
 import General from "../../../../General";
 
-// type HeaderProps = {}
-
 export default function Aside() {
   return (
     <AsideStyled>
@@ -22,8 +20,8 @@ export default function Aside() {
             alt=""
           />
         </Link>
-        <General.IconButton icon={<UilSignout />} />
         <General.IconButton icon={<UilCommentPlus />} />
+        <General.IconButton disabled icon={<UilSignout />} />
       </div>
     </AsideStyled>
   );

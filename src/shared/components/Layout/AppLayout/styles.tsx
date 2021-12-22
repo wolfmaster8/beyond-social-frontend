@@ -13,4 +13,13 @@ export const AppLayoutStyled = styled.main`
     padding: 4rem;
     border-right: 1px solid ${({ theme }) => theme.colors.light.blue[50]};
   }
+
+  @media all and (max-width: 768px) {
+    min-height: auto;
+    .container {
+      grid-template-areas: "body" "sidebar";
+      grid-template-columns: 1fr;
+      grid-template-rows: 10fr 1fr;
+    }
+  }
 `;

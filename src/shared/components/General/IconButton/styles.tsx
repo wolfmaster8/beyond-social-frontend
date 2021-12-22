@@ -27,7 +27,11 @@ export const IconButtonStyled = styled.button`
 
   &:disabled {
     cursor: not-allowed;
-    background-color: ${({ theme }) => theme.colors.light.blue[100]};
-    color: ${({ theme }) => theme.colors.light.blue[300]};
+    svg {
+      fill: ${({ theme }) => theme.colors.light.blue[200]};
+    }
+  }
+  @media all and (max-width: 768px) {
+    margin-bottom: 0;
   }
 `;
