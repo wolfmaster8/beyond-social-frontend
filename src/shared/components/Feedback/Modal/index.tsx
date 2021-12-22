@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import { UilTimes } from "@iconscout/react-unicons";
-import { Dialog } from "@reach/dialog";
 import { ModalStyled } from "./styles";
 import General from "../../General";
 

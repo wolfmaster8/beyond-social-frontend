@@ -13,4 +13,9 @@ export const ModalStyled = styled(Dialog)`
   .modal-content {
     padding: 0 2rem 2rem;
   }
+
+  @media all and (max-width: 768px) {
+    width: 90%;
+    box-sizing: border-box;
+  }
 `;

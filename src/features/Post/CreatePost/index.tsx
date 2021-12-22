@@ -8,8 +8,10 @@ import DataEntry from "../../../shared/components/DataEntry";
 import DataDisplay from "../../../shared/components/DataDisplay";
 
 export default function CreatePost() {
-  const { handleSetForm, handleSubmitForm } = useCreatePostController();
+  const { handleSetForm, handleSubmitForm, values } = useCreatePostController();
   const { closePostModal, showModal } = useContext(PostContext);
+
+  const isPublishButtonDisabled = !values.content;
 
   return (
     <Feedback.Modal isOpen={showModal} closeModal={closePostModal}>
@@ -23,7 +25,9 @@ export default function CreatePost() {
           />
         </div>
         <div className="footer">
-          <General.Button>Publicar</General.Button>
+          <General.Button disabled={isPublishButtonDisabled}>
+            Publicar
+          </General.Button>
         </div>
       </PostFormStyled>
     </Feedback.Modal>
