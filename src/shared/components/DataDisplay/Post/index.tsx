@@ -7,12 +7,14 @@ import RoutesEnum from "../../../../routes/RoutesEnum";
 import ActionItem from "../ActionItem";
 import { ColorType } from "../ActionItem/types";
 import { PostContext } from "../../../contexts/PostContext";
+import useUser from "../../../hooks/useUser";
 
 type PostProps = {
   post: PostEntity;
 };
 
 export default function Post({ post }: PostProps) {
+  const { user } = useUser();
   const [liked, setLiked] = useState(false);
   const [likedCount, setLikedCount] = useState(0);
   const { likePost } = useContext(PostContext);
@@ -28,11 +30,24 @@ export default function Post({ post }: PostProps) {
     likePost({ id: post.id });
   };
 
+  const handleUserLike = () => {
+    const isLikedByLoggedUser = post.likes?.find(
+      (like) => Number(like.userId) === Number(user.id)
+    );
+    if (isLikedByLoggedUser) {
+      setLiked(true);
+    }
+  };
+
   useEffect(() => {
     setLikedCount(post.likes?.length ?? 0);
   }, []);
 
-  const isLikedByLoggedUser: boolean = post.user?.id === 1;
+  useEffect(() => {
+    if (user.id) {
+      handleUserLike();
+    }
+  }, [user.id]);
 
   const likeButtonColor: ColorType = liked ? "red" : "blue";
   return (

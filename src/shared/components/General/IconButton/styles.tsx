@@ -17,6 +17,7 @@ export const IconButtonStyled = styled.button<IconProps>`
   align-items: center;
   transition: all 0.2s;
   background-color: transparent;
+  outline: 1px solid transparent;
 
   svg {
     fill: ${({ theme, color }) =>
@@ -34,7 +35,7 @@ export const IconButtonStyled = styled.button<IconProps>`
   }
 
   &:focus {
-    outline: 2px solid ${({ theme }) => theme.colors.light.blue[700]};
+    outline: 1px solid ${({ theme }) => theme.colors.light.neutral[100]};
   }
 
   &:disabled {
