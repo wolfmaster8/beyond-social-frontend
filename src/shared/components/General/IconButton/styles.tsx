@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { ColorType } from "../../DataDisplay/ActionItem/types";
 
 export type IconProps = {
   size?: number;
+  color?: ColorType;
 };
 
 export const IconButtonStyled = styled.button<IconProps>`
@@ -17,12 +19,18 @@ export const IconButtonStyled = styled.button<IconProps>`
   background-color: transparent;
 
   svg {
-    fill: ${({ theme }) => theme.colors.light.blue[400]};
+    fill: ${({ theme, color }) =>
+      color === "blue"
+        ? theme.colors.light.blue[400]
+        : theme.colors.light.red[600]};
   }
 
   &:hover {
     fill: ${({ theme }) => theme.colors.light.blue[600]};
-    background-color: ${({ theme }) => theme.colors.light.blue[50]};
+    background-color: ${({ theme, color }) =>
+      color === "blue"
+        ? theme.colors.light.blue[50]
+        : theme.colors.light.red[50]};
   }
 
   &:focus {

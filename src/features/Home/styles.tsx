@@ -5,6 +5,7 @@ export const NoMorePostsIndicator = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 2rem;
   p {
     text-align: center;
   }

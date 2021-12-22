@@ -28,10 +28,6 @@ export const PostStyled = styled.article`
     }
   }
 
-  /*  &:hover {
-    background-color: ${({ theme }) => theme.colors.light.blue[50]};
-  } */
-
   .profile-image {
     width: 3rem;
     height: 3rem;

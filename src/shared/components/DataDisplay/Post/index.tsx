@@ -1,17 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { UilThumbsUp, UilCommentAlt } from "@iconscout/react-unicons";
+import { UilHeart, UilCommentAlt } from "@iconscout/react-unicons";
 import PostEntity from "../../../../models/entity/PostEntity";
 import { ActionsStyled, PostLinkStyled, PostStyled } from "./styles";
 import RoutesEnum from "../../../../routes/RoutesEnum";
 import General from "../../General";
 import ActionItem from "../ActionItem";
+import { ColorType } from "../ActionItem/types";
 
 type PostProps = {
   post: PostEntity;
 };
 
 export default function Post({ post }: PostProps) {
+  const isLikedByLoggedUser: boolean = post.user?.id === 1;
+
+  const likeButtonColor: ColorType = isLikedByLoggedUser ? "red" : "blue";
   return (
     <>
       <PostLinkStyled to={`${RoutesEnum.post}/${post.id}`}>
@@ -40,7 +44,8 @@ export default function Post({ post }: PostProps) {
       </PostLinkStyled>
       <ActionsStyled>
         <ActionItem
-          icon={<UilThumbsUp />}
+          color={likeButtonColor}
+          icon={<UilHeart />}
           count={post.likes?.length}
           onClick={() => {}}
         />
