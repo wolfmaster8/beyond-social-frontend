@@ -1,6 +1,6 @@
-interface PostCommentEntity {
+interface PostLikeEntity {
   id: number;
   userId: number;
 }
 
-export default PostCommentEntity;
+export default PostLikeEntity;

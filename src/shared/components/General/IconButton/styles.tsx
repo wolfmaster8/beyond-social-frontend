@@ -20,17 +20,17 @@ export const IconButtonStyled = styled.button<IconProps>`
 
   svg {
     fill: ${({ theme, color }) =>
-      color === "blue"
-        ? theme.colors.light.blue[400]
-        : theme.colors.light.red[600]};
+      color === "red"
+        ? theme.colors.light.red[600]
+        : theme.colors.light.blue[400]};
   }
 
   &:hover {
     fill: ${({ theme }) => theme.colors.light.blue[600]};
     background-color: ${({ theme, color }) =>
-      color === "blue"
-        ? theme.colors.light.blue[50]
-        : theme.colors.light.red[50]};
+      color === "red"
+        ? theme.colors.light.red[50]
+        : theme.colors.light.blue[50]};
   }
 
   &:focus {

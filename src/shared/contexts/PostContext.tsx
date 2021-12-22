@@ -2,6 +2,7 @@ import React, { createContext, ReactNode, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import PostEntity from "../../models/entity/PostEntity";
 import PostManager from "../../managers/PostManager";
+import { GenericIdParameter } from "../utils/GlobalTypes";
 
 type PostContextType = {
   openPostModal: () => void;
@@ -9,6 +10,7 @@ type PostContextType = {
   showModal: boolean;
   posts: PostEntity[];
   getFeed: () => void;
+  likePost: ({ id }: GenericIdParameter) => void;
 };
 
 export const PostContext = createContext({} as PostContextType);
@@ -38,9 +40,24 @@ export function PostContextProvider({ children }: PostContextProps) {
     }
   };
 
+  const likePost = async ({ id }: GenericIdParameter) => {
+    try {
+      await PostManager.like({ id });
+    } catch (e) {
+      toast.error("No pudimos enviar tu like");
+    }
+  };
+
   return (
     <PostContext.Provider
-      value={{ openPostModal, closePostModal, showModal, posts, getFeed }}
+      value={{
+        openPostModal,
+        closePostModal,
+        showModal,
+        posts,
+        getFeed,
+        likePost,
+      }}
     >
       {children}
     </PostContext.Provider>

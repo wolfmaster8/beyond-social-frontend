@@ -1,5 +1,5 @@
 import PostCommentEntity from "./PostCommentEntity";
-import PostLikesEntity from "./PostLikeEntity";
+import PostLikeEntity from "./PostLikeEntity";
 import UserEntity from "./UserEntity";
 
 interface PostEntity {
@@ -10,7 +10,7 @@ interface PostEntity {
   updatedAt?: string;
   user?: Pick<UserEntity, "id" | "username" | "lastName" | "firstName">;
   comments?: PostCommentEntity[];
-  likes?: PostLikesEntity[];
+  likes?: PostLikeEntity[];
 }
 
 export default PostEntity;

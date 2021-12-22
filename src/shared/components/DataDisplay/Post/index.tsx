@@ -1,21 +1,40 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { UilHeart, UilCommentAlt } from "@iconscout/react-unicons";
+import { UilCommentAlt, UilHeart } from "@iconscout/react-unicons";
 import PostEntity from "../../../../models/entity/PostEntity";
 import { ActionsStyled, PostLinkStyled, PostStyled } from "./styles";
 import RoutesEnum from "../../../../routes/RoutesEnum";
-import General from "../../General";
 import ActionItem from "../ActionItem";
 import { ColorType } from "../ActionItem/types";
+import { PostContext } from "../../../contexts/PostContext";
 
 type PostProps = {
   post: PostEntity;
 };
 
 export default function Post({ post }: PostProps) {
+  const [liked, setLiked] = useState(false);
+  const [likedCount, setLikedCount] = useState(0);
+  const { likePost } = useContext(PostContext);
+
+  const handleLikePost = () => {
+    if (liked) {
+      setLiked(false);
+      setLikedCount(likedCount - 1);
+    } else {
+      setLiked(true);
+      setLikedCount(likedCount + 1);
+    }
+    likePost({ id: post.id });
+  };
+
+  useEffect(() => {
+    setLikedCount(post.likes?.length ?? 0);
+  }, []);
+
   const isLikedByLoggedUser: boolean = post.user?.id === 1;
 
-  const likeButtonColor: ColorType = isLikedByLoggedUser ? "red" : "blue";
+  const likeButtonColor: ColorType = liked ? "red" : "blue";
   return (
     <>
       <PostLinkStyled to={`${RoutesEnum.post}/${post.id}`}>
@@ -46,8 +65,8 @@ export default function Post({ post }: PostProps) {
         <ActionItem
           color={likeButtonColor}
           icon={<UilHeart />}
-          count={post.likes?.length}
-          onClick={() => {}}
+          count={likedCount}
+          onClick={handleLikePost}
         />
         <ActionItem
           icon={<UilCommentAlt />}
