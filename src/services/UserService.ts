@@ -1,7 +1,6 @@
 import { apiService } from "./apiService";
 import { UserRegisterCredentialsDTO } from "../models/DTO/user/UserRegisterCredentialsDTO";
 import UserEntity from "../models/entity/UserEntity";
-import { GenericIdParameter } from "../shared/utils/GlobalTypes";
 import { UserProfileWithPostsDTO } from "../models/DTO/user/UserProfileWithPostsDTO";
 import { UserUpdateProfileDTO } from "../models/DTO/user/UserUpdateProfileDTO";
 

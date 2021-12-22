@@ -7,7 +7,6 @@ import General from "../../../../../shared/components/General";
 
 export default function EditProfileModal() {
   const {
-    userProfile,
     closeUpdateModal,
     showUpdateModal,
     handleSetForm,
