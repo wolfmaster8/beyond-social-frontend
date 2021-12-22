@@ -63,6 +63,7 @@
     "no-shadow": "off",
     "react/prop-types": "off",
     "@typescript-eslint/no-use-before-define": "off",
+    "react-hooks/exhaustive-deps": "warn",
     "react/jsx-no-constructed-context-values": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-shadow": [

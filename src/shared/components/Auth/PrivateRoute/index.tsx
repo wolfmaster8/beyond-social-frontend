@@ -4,6 +4,7 @@ import RoutesEnum from "../../../../routes/RoutesEnum";
 import AuthenticationService from "../../../../services/AuthenticationService";
 import { setRequestInterceptor } from "../../../../services/apiService";
 import { PostContextProvider } from "../../../contexts/PostContext";
+import CreatePost from "../../../../features/Post/CreatePost";
 
 type PrivateRouteProps = {
   children: JSX.Element;
@@ -23,5 +24,9 @@ export default function PrivateRoute({ children }: PrivateRouteProps) {
 
   if (!isLoggedIn)
     return <Navigate to={RoutesEnum.login} state={{ from: location }} />;
-  return <PostContextProvider>{children}</PostContextProvider>;
+  return (
+    <PostContextProvider>
+      {children} <CreatePost />
+    </PostContextProvider>
+  );
 }

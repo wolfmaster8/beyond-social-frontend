@@ -16,8 +16,14 @@ export default function useForm<FormStructure>({
 }: UseFormType) {
   const [form, setForm] = useState({} as FormStructure);
 
-  const handleSetForm = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSetForm = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const cleanFormValues = () => {
+    setForm({} as FormStructure);
   };
 
   const handleSubmitForm = async (e: React.FormEvent) => {
@@ -39,5 +45,5 @@ export default function useForm<FormStructure>({
     }
   };
 
-  return { values: form, handleSetForm, handleSubmitForm };
+  return { values: form, handleSetForm, handleSubmitForm, cleanFormValues };
 }

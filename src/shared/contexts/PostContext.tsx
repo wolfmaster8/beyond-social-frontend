@@ -1,15 +1,9 @@
-import React, {
-  createContext,
-  ReactNode,
-  SetStateAction,
-  useState,
-} from "react";
-import { Dialog } from "@reach/dialog";
-import Feedback from "../components/Feedback";
-import General from "../components/General";
+import React, { createContext, ReactNode, useState } from "react";
 
 type PostContextType = {
   openPostModal: () => void;
+  closePostModal: () => void;
+  showModal: boolean;
 };
 
 export const PostContext = createContext({} as PostContextType);
@@ -25,14 +19,8 @@ export function PostContextProvider({ children }: PostContextProps) {
   const closePostModal = () => setShowModal(false);
 
   return (
-    <PostContext.Provider value={{ openPostModal }}>
+    <PostContext.Provider value={{ openPostModal, closePostModal, showModal }}>
       {children}
-      <Feedback.Modal isOpen={showModal} closeModal={closePostModal}>
-        <form>
-          <p>hjaol</p>
-          <General.Button>Publicar</General.Button>
-        </form>
-      </Feedback.Modal>
     </PostContext.Provider>
   );
 }
