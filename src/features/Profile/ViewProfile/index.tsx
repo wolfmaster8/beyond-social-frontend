@@ -28,7 +28,7 @@ function ViewProfile() {
         ) : (
           <DataDisplay.ProfileImage
             size={120}
-            src="https://via.placeholder.com/200x200"
+            src={userProfile.avatarUrl ?? ""}
           />
         )}
         <div className="profile-data">

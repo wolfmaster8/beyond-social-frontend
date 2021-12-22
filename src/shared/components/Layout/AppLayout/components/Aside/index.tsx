@@ -19,7 +19,7 @@ export default function Aside() {
           <img className="icon" src={BeyondSocialIcon} alt="" />
         </Link>
         <Link to={`${RoutesEnum.user}/${user.username}`} className="profile">
-          <DataDisplay.ProfileImage src="https://via.placeholder.com/200x200" />
+          <DataDisplay.ProfileImage src={user.avatarUrl ?? ""} />
         </Link>
         <General.IconButton onClick={openPostModal} icon={<UilCommentPlus />} />
         <General.IconButton disabled icon={<UilSignout />} />

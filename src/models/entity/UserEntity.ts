@@ -5,6 +5,7 @@ interface UserEntity {
   username: string;
   email: string;
   password: string;
+  avatarUrl?: string;
 }
 
 export default UserEntity;

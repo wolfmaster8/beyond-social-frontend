@@ -2,6 +2,7 @@ import React, { createContext, ReactNode, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import UserEntity from "../../models/entity/UserEntity";
 import UserManager from "../../managers/UserManager";
+import UserHelper from "../utils/helpers/UserHelper";
 
 type UserContextType = {
   user: UserEntity;
@@ -24,6 +25,7 @@ export function UserContextProvider({ children }: UserContextProps) {
   const getUserProfile = async () => {
     try {
       const userProfile = await UserManager.getSelfProfile();
+
       setUser(userProfile);
     } catch (error: any) {
       if (error.response.data.message) {

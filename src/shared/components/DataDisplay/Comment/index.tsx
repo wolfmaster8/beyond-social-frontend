@@ -5,6 +5,7 @@ import { CommentStyled } from "./styles";
 import RoutesEnum from "../../../../routes/RoutesEnum";
 import ProfileImage from "../ProfileImage";
 import PostCommentEntity from "../../../../models/entity/PostCommentEntity";
+import UserHelper from "../../../utils/helpers/UserHelper";
 
 type CommentProps = {
   comment: PostCommentEntity;
@@ -17,13 +18,16 @@ const defaultProps = {
 
 function Comment({ comment, loading }: CommentProps) {
   const isLoading = loading || !comment.id;
+  const avatarUrl =
+    comment.user?.avatarUrl ||
+    UserHelper.generateGravatarUri({ email: comment.user?.email ?? "" });
   return (
     <CommentStyled>
       <div className="comment-content">
         {isLoading ? (
           <Skeleton circle width={48} height={48} />
         ) : (
-          <ProfileImage src="https://via.placeholder.com/200x200" />
+          <ProfileImage src={avatarUrl} />
         )}
 
         <div className="comment-content-text">
