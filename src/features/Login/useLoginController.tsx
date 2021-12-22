@@ -13,8 +13,7 @@ export default function useLoginController() {
       username: values.username,
       password: values.password,
     });
-    const bearerToken = `Bearer ${token}`;
-    sessionStorage.setItem(SessionStorageKeysEnum.TOKEN, bearerToken);
+    sessionStorage.setItem(SessionStorageKeysEnum.TOKEN, token);
     setRequestInterceptor();
     navigate(RoutesEnum.main);
   };

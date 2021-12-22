@@ -126,6 +126,10 @@
     margin: 0;
 }
 
+.text-center{
+    text-align: center;
+}
+
 @media all and (max-width: 768px){
     .heading-4{
         font-size: 1.25rem;

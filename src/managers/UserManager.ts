@@ -1,5 +1,6 @@
 import { UserRegisterCredentialsDTO } from "../models/DTO/user/UserRegisterCredentialsDTO";
 import UserService from "../services/UserService";
+import UserEntity from "../models/entity/UserEntity";
 
 export default class UserManager {
   public static async register({
@@ -16,5 +17,9 @@ export default class UserManager {
       lastName,
       email,
     });
+  }
+
+  public static async getProfile(): Promise<UserEntity> {
+    return UserService.getProfile();
   }
 }

@@ -88,3 +88,12 @@
 
 
 
+/* Red */
+
+.text-red-50{
+    color: var(--red-50)
+}
+
+.text-red-600{
+    color: var(--red-600)
+}

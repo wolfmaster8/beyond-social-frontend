@@ -46,17 +46,13 @@ apiService.interceptors.response.use(
 
         sessionStorage.removeItem(SessionStorageKeysEnum.TOKEN);
         cleanRequestInterceptor();
-        if (window.location.pathname.split("/")[1] === "user") {
-          toast.dismiss();
-          toast.error(
-            "Tu sesión ha caducado. Te redireccionaremos en 3 segundos"
-          );
-          setTimeout(() => {
-            window.location.assign("/");
-          }, 3000);
-        } else {
-          toast.error("Tu sesión ha caducado. Inicia sesión nuevamente.");
-        }
+        toast.dismiss();
+        toast.error(
+          "Tu sesión ha caducado. Te redireccionaremos en 3 segundos"
+        );
+        setTimeout(() => {
+          window.location.assign("/");
+        }, 3000);
       }
       reject(error);
     });
