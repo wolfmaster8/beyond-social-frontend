@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
-export const IconButtonStyled = styled.button`
+export type IconProps = {
+  size?: number;
+};
+
+export const IconButtonStyled = styled.button<IconProps>`
   border-radius: 50px;
   margin-bottom: 0.5rem;
   border: none;
-  width: 3rem;
-  height: 3rem;
+  width: ${({ size }) => size}px;
+  height: ${({ size }) => size}px;
   display: flex;
   justify-content: center;
   align-items: center;

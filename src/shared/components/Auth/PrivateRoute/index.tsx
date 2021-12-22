@@ -14,14 +14,10 @@ export default function PrivateRoute({ children }: PrivateRouteProps) {
   const isLoggedIn = AuthenticationService.isUserAuthenticated();
   const location = useLocation();
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      setRequestInterceptor();
-    }
-  }, [isLoggedIn]);
-
   if (!isLoggedIn)
     return <Navigate to={RoutesEnum.login} state={{ from: location }} />;
+  setRequestInterceptor();
+
   return (
     <PostContextProvider>
       {children} <CreatePost />
