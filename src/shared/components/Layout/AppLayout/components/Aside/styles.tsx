@@ -20,11 +20,7 @@ export const AsideStyled = styled.nav`
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-
-    .profile-image {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50px;
+    .profile {
       margin-bottom: 1rem;
     }
   }
@@ -46,11 +42,6 @@ export const AsideStyled = styled.nav`
       align-items: center;
       justify-content: space-around;
       border-top: 1px solid ${({ theme }) => theme.colors.light.blue[50]};
-      .profile-image {
-        margin-bottom: 0;
-        width: 2rem;
-        height: 2rem;
-      }
     }
   }
 `;

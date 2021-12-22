@@ -9,6 +9,7 @@ import ActionItem from "../ActionItem";
 import { ColorType } from "../ActionItem/types";
 import { PostContext } from "../../../contexts/PostContext";
 import useUser from "../../../hooks/useUser";
+import ProfileImage from "../ProfileImage";
 
 type PostProps = {
   post: PostEntity;
@@ -64,13 +65,9 @@ function Post({ post, loading }: PostProps) {
         <PostStyled>
           <div className="post-content">
             {isLoading ? (
-              <Skeleton className="profile-image" />
+              <Skeleton circle width={48} height={48} />
             ) : (
-              <img
-                className="profile-image"
-                src="https://via.placeholder.com/200x200"
-                alt=""
-              />
+              <ProfileImage src="https://via.placeholder.com/200x200" />
             )}
 
             <div className="post-content-text">
@@ -81,7 +78,7 @@ function Post({ post, loading }: PostProps) {
                   <>
                     <span>
                       <b>{post.user?.firstName}</b>
-                    </span>
+                    </span>{" "}
                     <Link to={`${RoutesEnum.user}/${post.user?.username}`}>
                       <span className="text-neutral-500">
                         @{post.user?.username}

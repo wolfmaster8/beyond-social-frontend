@@ -4,6 +4,8 @@ import { toast } from "react-hot-toast";
 import PostEntity from "../../../models/entity/PostEntity";
 import PostManager from "../../../managers/PostManager";
 import RoutesEnum from "../../../routes/RoutesEnum";
+import useForm from "../../../shared/hooks/useForm";
+import { PostCommentRegisterDTO } from "../../../models/DTO/post/PostCommentRegisterDTO";
 
 export default function useViewPostController() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,5 +33,19 @@ export default function useViewPostController() {
     }
   };
 
-  return { post, isLoading };
+  const onSubmitComment = async () => {
+    await PostManager.comment({ postId: Number(id), content: values.content });
+    await handleGetPost();
+  };
+
+  const { values, handleSubmitForm, handleSetForm } =
+    useForm<PostCommentRegisterDTO>({
+      onSubmit: onSubmitComment,
+      messages: {
+        loading: "Publicando comentario",
+        success: "Comentario Publicado!",
+      },
+    });
+
+  return { post, isLoading, values, handleSubmitForm, handleSetForm };
 }

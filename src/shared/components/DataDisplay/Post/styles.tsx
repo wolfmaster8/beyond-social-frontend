@@ -16,6 +16,7 @@ export const PostStyled = styled.article`
     display: flex;
 
     .post-content-text {
+      margin-left: 1rem;
     }
   }
 
@@ -26,13 +27,6 @@ export const PostStyled = styled.article`
       text-decoration: underline
         ${({ theme }) => theme.colors.light.neutral[600]};
     }
-  }
-
-  .profile-image {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50px;
-    margin-right: 1rem;
   }
 `;
 
