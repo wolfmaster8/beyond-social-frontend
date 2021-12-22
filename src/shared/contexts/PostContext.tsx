@@ -3,6 +3,7 @@ import { toast } from "react-hot-toast";
 import PostEntity from "../../models/entity/PostEntity";
 import PostManager from "../../managers/PostManager";
 import { GenericIdParameter } from "../utils/GlobalTypes";
+import useModal from "../hooks/useModal";
 
 type PostContextType = {
   openPostModal: () => void;
@@ -21,11 +22,8 @@ type PostContextProps = {
 };
 
 export function PostContextProvider({ children }: PostContextProps) {
-  const [showModal, setShowModal] = useState(false);
+  const { closeModal, openModal, showModal } = useModal();
   const [isLoading, setIsLoading] = useState(true);
-
-  const openPostModal = () => setShowModal(true);
-  const closePostModal = () => setShowModal(false);
 
   const [posts, setPosts] = useState<PostEntity[]>([]);
 
@@ -55,8 +53,8 @@ export function PostContextProvider({ children }: PostContextProps) {
   return (
     <PostContext.Provider
       value={{
-        openPostModal,
-        closePostModal,
+        openPostModal: openModal,
+        closePostModal: closeModal,
         showModal,
         posts,
         getFeed,

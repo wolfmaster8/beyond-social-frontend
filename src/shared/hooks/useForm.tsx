@@ -26,11 +26,15 @@ export default function useForm<FormStructure>({
     setForm({} as FormStructure);
   };
 
+  const updateFormValues = ({ values }: { values: FormStructure }) => {
+    setForm(values);
+  };
+
   const handleSubmitForm = async (e: React.FormEvent) => {
     try {
       toast.loading(messages?.loading ?? "Cargando", { id: "form" });
       e.preventDefault();
-      onSubmit();
+      await onSubmit();
       toast.success(messages?.success ?? "¡Enviado!", { id: "form" });
     } catch (error: any) {
       if (error.response.data.message) {
@@ -45,5 +49,11 @@ export default function useForm<FormStructure>({
     }
   };
 
-  return { values: form, handleSetForm, handleSubmitForm, cleanFormValues };
+  return {
+    values: form,
+    handleSetForm,
+    handleSubmitForm,
+    cleanFormValues,
+    updateFormValues,
+  };
 }

@@ -3,6 +3,7 @@ import { UserRegisterCredentialsDTO } from "../models/DTO/user/UserRegisterCrede
 import UserEntity from "../models/entity/UserEntity";
 import { GenericIdParameter } from "../shared/utils/GlobalTypes";
 import { UserProfileWithPostsDTO } from "../models/DTO/user/UserProfileWithPostsDTO";
+import { UserUpdateProfileDTO } from "../models/DTO/user/UserUpdateProfileDTO";
 
 export default class UserService {
   public static async register({
@@ -34,5 +35,20 @@ export default class UserService {
   }): Promise<UserProfileWithPostsDTO> {
     const { data } = await apiService.get(`/users/profile/${username}`);
     return Promise.resolve(data);
+  }
+
+  public static async update({
+    username,
+    firstName,
+    lastName,
+    email,
+  }: UserUpdateProfileDTO): Promise<void> {
+    await apiService.patch("/users", {
+      username,
+      firstName,
+      lastName,
+      email,
+    });
+    return Promise.resolve();
   }
 }

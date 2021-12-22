@@ -3,12 +3,21 @@ import { ProfileImageContainerStyled } from "./styles";
 
 type ProfileImageProps = {
   src: string;
+  size?: number;
 };
 
-export default function ProfileImage({ src }: ProfileImageProps) {
+const defaultProps = {
+  size: 48,
+};
+
+function ProfileImage({ src, size = 48 }: ProfileImageProps) {
   return (
-    <ProfileImageContainerStyled>
+    <ProfileImageContainerStyled size={size}>
       <img src={src} alt="" />
     </ProfileImageContainerStyled>
   );
 }
+
+ProfileImage.defaultProps = defaultProps;
+
+export default ProfileImage;

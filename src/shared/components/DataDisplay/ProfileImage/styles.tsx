@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
-export const ProfileImageContainerStyled = styled.div`
+type ProfileImageContainerProps = {
+  size: number;
+};
+
+export const ProfileImageContainerStyled = styled.div<ProfileImageContainerProps>`
   img {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50px;
+    width: ${({ size }) => size}px;
+    height: ${({ size }) => size}px;
+    border-radius: 100px;
   }
 `;

@@ -15,7 +15,7 @@ export const AppLayoutStyled = styled.main`
     border-right: 1px solid ${({ theme }) => theme.colors.light.blue[50]};
     border-left: 1px solid ${({ theme }) => theme.colors.light.blue[50]};
 
-    h1 {
+    .page-title {
       padding: 1rem 2rem;
     }
   }

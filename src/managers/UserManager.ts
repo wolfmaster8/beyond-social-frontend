@@ -3,6 +3,7 @@ import UserService from "../services/UserService";
 import UserEntity from "../models/entity/UserEntity";
 import { GenericIdParameter } from "../shared/utils/GlobalTypes";
 import { UserProfileWithPostsDTO } from "../models/DTO/user/UserProfileWithPostsDTO";
+import { UserUpdateProfileDTO } from "../models/DTO/user/UserUpdateProfileDTO";
 
 export default class UserManager {
   public static async register({
@@ -31,5 +32,14 @@ export default class UserManager {
     username: string;
   }): Promise<UserProfileWithPostsDTO> {
     return UserService.getUserWithPosts({ username });
+  }
+
+  public static async update({
+    username,
+    firstName,
+    lastName,
+    email,
+  }: UserUpdateProfileDTO): Promise<void> {
+    return UserService.update({ username, firstName, lastName, email });
   }
 }
