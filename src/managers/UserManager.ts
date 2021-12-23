@@ -41,4 +41,8 @@ export default class UserManager {
   }: UserUpdateProfileDTO): Promise<void> {
     return UserService.update({ username, firstName, lastName, email });
   }
+
+  public static async uploadAvatar({ avatar }: { avatar: File }) {
+    return UserService.uploadAvatar({ avatar });
+  }
 }
