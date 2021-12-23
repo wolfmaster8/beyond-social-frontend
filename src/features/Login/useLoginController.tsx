@@ -27,5 +27,5 @@ export default function useLoginController() {
       },
     });
 
-  return { handleSetForm, handleSubmitForm };
+  return { handleSetForm, handleSubmitForm, values };
 }
