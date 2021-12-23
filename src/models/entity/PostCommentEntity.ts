@@ -9,7 +9,7 @@ interface PostCommentEntity {
   updatedAt?: string;
   user?: Pick<
     UserEntity,
-    "id" | "username" | "lastName" | "firstName" | "avatarUrl" | "email"
+    "id" | "username" | "lastName" | "firstName" | "avatarUrl"
   >;
 }
 

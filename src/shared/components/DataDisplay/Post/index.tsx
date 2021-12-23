@@ -10,7 +10,6 @@ import { ColorType } from "../ActionItem/types";
 import { PostContext } from "../../../contexts/PostContext";
 import useUser from "../../../hooks/useUser";
 import ProfileImage from "../ProfileImage";
-import UserHelper from "../../../utils/helpers/UserHelper";
 
 type PostProps = {
   post: PostEntity;
@@ -62,10 +61,6 @@ function Post({ post, loading }: PostProps) {
 
   const postUrl = `${RoutesEnum.post}/${post.id}`;
 
-  const profileImage = UserHelper.generateGravatarUri({
-    email: post.user?.email ?? "",
-  });
-
   const isLoading = loading || !post.id;
   return (
     <>
@@ -75,7 +70,7 @@ function Post({ post, loading }: PostProps) {
             {isLoading ? (
               <Skeleton circle width={48} height={48} />
             ) : (
-              <ProfileImage src={profileImage} />
+              <ProfileImage src={post.user?.avatarUrl ?? ""} />
             )}
 
             <div className="post-content-text">

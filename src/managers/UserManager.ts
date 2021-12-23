@@ -3,7 +3,6 @@ import UserService from "../services/UserService";
 import UserEntity from "../models/entity/UserEntity";
 import { UserProfileWithPostsDTO } from "../models/DTO/user/UserProfileWithPostsDTO";
 import { UserUpdateProfileDTO } from "../models/DTO/user/UserUpdateProfileDTO";
-import UserHelper from "../shared/utils/helpers/UserHelper";
 
 export default class UserManager {
   public static async register({
@@ -23,9 +22,7 @@ export default class UserManager {
   }
 
   public static async getSelfProfile(): Promise<UserEntity> {
-    const user = await UserService.getSelfProfile();
-    const formattedUser = UserHelper.formatuserWithImages(user);
-    return formattedUser;
+    return UserService.getSelfProfile();
   }
 
   public static async getUserWithPosts({
@@ -33,9 +30,7 @@ export default class UserManager {
   }: {
     username: string;
   }): Promise<UserProfileWithPostsDTO> {
-    const user = await UserService.getUserWithPosts({ username });
-    const formattedUser = UserHelper.formatuserWithImages(user);
-    return formattedUser;
+    return UserService.getUserWithPosts({ username });
   }
 
   public static async update({

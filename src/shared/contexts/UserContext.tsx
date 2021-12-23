@@ -2,7 +2,6 @@ import React, { createContext, ReactNode, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import UserEntity from "../../models/entity/UserEntity";
 import UserManager from "../../managers/UserManager";
-import UserHelper from "../utils/helpers/UserHelper";
 
 type UserContextType = {
   user: UserEntity;
