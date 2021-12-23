@@ -6,8 +6,10 @@ import { CommentsForm } from "./styles";
 import DataEntry from "../../../shared/components/DataEntry";
 import General from "../../../shared/components/General";
 import HelmetContainer from "../../../shared/components/HelmetContainer";
+import useUser from "../../../shared/hooks/useUser";
 
 export default function ViewPost() {
+  const { user } = useUser();
   const { post, isLoading, handleSubmitForm, values, handleSetForm } =
     useViewPostController();
 
@@ -18,7 +20,7 @@ export default function ViewPost() {
       <DataDisplay.Post post={post} loading={isLoading} />
       <CommentsForm onSubmit={handleSubmitForm}>
         <div className="comment-form">
-          <DataDisplay.ProfileImage src="https://via.placeholder.com/200x200" />
+          <DataDisplay.ProfileImage src={user.avatarUrl ?? ""} />
           <DataEntry.TextArea
             value={values.content ?? ""}
             onChange={handleSetForm}

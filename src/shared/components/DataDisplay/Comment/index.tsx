@@ -23,7 +23,7 @@ function Comment({ comment, loading }: CommentProps) {
         {isLoading ? (
           <Skeleton circle width={48} height={48} />
         ) : (
-          <ProfileImage src="https://via.placeholder.com/200x200" />
+          <ProfileImage src={comment.user?.avatarUrl ?? ""} />
         )}
 
         <div className="comment-content-text">

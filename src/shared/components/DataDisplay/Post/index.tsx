@@ -70,7 +70,7 @@ function Post({ post, loading }: PostProps) {
             {isLoading ? (
               <Skeleton circle width={48} height={48} />
             ) : (
-              <ProfileImage src="https://via.placeholder.com/200x200" />
+              <ProfileImage src={post.user?.avatarUrl ?? ""} />
             )}
 
             <div className="post-content-text">

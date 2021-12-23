@@ -50,4 +50,13 @@ export default class UserService {
     });
     return Promise.resolve();
   }
+
+  public static async uploadAvatar({ avatar }: { avatar: File }) {
+    const formData = new FormData();
+    formData.append("avatar", avatar);
+    formData.append("document", avatar);
+    await apiService.post("/users/upload-avatar", formData, {
+      headers: { "content-type": "multipart/form-data" },
+    });
+  }
 }

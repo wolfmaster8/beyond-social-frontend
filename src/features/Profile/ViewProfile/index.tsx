@@ -11,10 +11,11 @@ import {
 } from "./ViewProfileContext";
 import EditProfileModal from "./components/EditProfileModal";
 import HelmetContainer from "../../../shared/components/HelmetContainer";
+import EditPhotoModal from "./components/EditPhotoModal";
 
 function ViewProfile() {
   const { user } = useUser();
-  const { userProfile, isLoading, openUpdateModal } =
+  const { userProfile, isLoading, openUpdateModal, openPhotoModal } =
     useContext(ViewProfileContext);
   const postsCount = userProfile.posts?.length;
   const isProfileFormLoggedUser = userProfile.id === user.id;
@@ -28,7 +29,7 @@ function ViewProfile() {
         ) : (
           <DataDisplay.ProfileImage
             size={120}
-            src="https://via.placeholder.com/200x200"
+            src={userProfile.avatarUrl ?? ""}
           />
         )}
         <div className="profile-data">
@@ -57,16 +58,25 @@ function ViewProfile() {
           </p>
         )}
         {canUpdateProfile ? (
-          <General.Button onClick={openUpdateModal} variant="secondary">
-            Editar Perfil
-          </General.Button>
+          <Layout.Grid columns="1fr 1fr" gap="8px">
+            <General.Button variant="link" onClick={openPhotoModal}>
+              Cambiar avatar
+            </General.Button>
+            <General.Button onClick={openUpdateModal} variant="secondary">
+              Editar Perfil
+            </General.Button>
+          </Layout.Grid>
         ) : null}
       </PostsCountStyled>
       {userProfile.posts?.map((post) => (
         <DataDisplay.Post key={post.id} post={post} loading={false} />
       ))}
 
-      {canUpdateProfile ? <EditProfileModal /> : null}
+      {canUpdateProfile ? (
+        <>
+          <EditProfileModal /> <EditPhotoModal />
+        </>
+      ) : null}
     </Layout.AppLayout>
   );
 }
