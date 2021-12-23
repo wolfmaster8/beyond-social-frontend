@@ -16,7 +16,7 @@ export default function useCreatePostController() {
   const { values, handleSetForm, handleSubmitForm } = useForm<PostRegisterDTO>({
     onSubmit,
     messages: {
-      success: "¡Publicado!",
+      success: "¡Publicado! 🆕",
       loading: "Publicando...",
     },
   });
