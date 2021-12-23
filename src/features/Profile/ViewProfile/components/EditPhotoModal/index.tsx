@@ -1,7 +1,6 @@
-import React, { ChangeEvent, useContext, useState } from "react";
+import React, { useContext } from "react";
 import Feedback from "../../../../../shared/components/Feedback";
 import { ViewProfileContext } from "../../ViewProfileContext";
-import { apiService } from "../../../../../services/apiService";
 import DataDisplay from "../../../../../shared/components/DataDisplay";
 import General from "../../../../../shared/components/General";
 import useUser from "../../../../../shared/hooks/useUser";

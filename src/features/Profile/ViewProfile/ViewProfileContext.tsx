@@ -15,7 +15,6 @@ import useModal from "../../../shared/hooks/useModal";
 import useForm from "../../../shared/hooks/useForm";
 import { UserUpdateProfileDTO } from "../../../models/DTO/user/UserUpdateProfileDTO";
 import { UserContext } from "../../../shared/contexts/UserContext";
-import { apiService } from "../../../services/apiService";
 
 type ViewProfileContextType = {
   userProfile: UserProfileWithPostsDTO;
