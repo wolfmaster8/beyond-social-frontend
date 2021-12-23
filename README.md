@@ -10,7 +10,7 @@
 
 ## Decisiones del proyecto
 ### Estilos
-* Decidi utilizar Styled Components junto con clases CSS. Esto evita estar creando componentes con Styled Components para estilizar, por ejemplo, textos.
+* Decidí utilizar Styled Components junto con clases CSS. Esto evita estar creando componentes con Styled Components para estilizar, por ejemplo, textos.
 
 ### Tests
 * Por tiempo, decidí solo realizar algunos tests automatizados.
