@@ -44,7 +44,7 @@ export default function useViewPostController() {
       onSubmit: onSubmitComment,
       messages: {
         loading: "Publicando comentario",
-        success: "Comentario Publicado!",
+        success: "¡Comentario Publicado! 🤩",
       },
     });
 

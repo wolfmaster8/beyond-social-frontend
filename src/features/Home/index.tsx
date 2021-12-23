@@ -24,11 +24,15 @@ export default function Home() {
   return (
     <Layout.AppLayout>
       <HelmetContainer pageTitle="Home" />
-      {isLoading
-        ? renderSkeletonPosts
-        : posts.map((post) => (
+      {isLoading ? (
+        renderSkeletonPosts
+      ) : (
+        <div data-cy="feed">
+          {posts.map((post) => (
             <DataDisplay.Post key={post.id} post={post} loading={false} />
           ))}
+        </div>
+      )}
 
       <NoMorePostsIndicator>
         <UilSorting />

@@ -104,6 +104,7 @@ function Post({ post, loading }: PostProps) {
           <Skeleton circle width={24} height={24} />
         ) : (
           <ActionItem
+            dataCy="likes"
             color={likeButtonColor}
             icon={<UilHeart />}
             count={likedCount}
@@ -114,6 +115,7 @@ function Post({ post, loading }: PostProps) {
           <Skeleton circle width={24} height={24} />
         ) : (
           <ActionItem
+            dataCy="comments"
             icon={<UilCommentAlt />}
             count={post.comments?.length}
             onClick={() => navigate(postUrl)}

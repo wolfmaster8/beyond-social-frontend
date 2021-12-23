@@ -9,7 +9,9 @@ import LoginImage from "../../assets/images/hi5.png";
 import useLoginController from "./useLoginController";
 
 export default function Login() {
-  const { handleSubmitForm, handleSetForm } = useLoginController();
+  const { handleSubmitForm, handleSetForm, values } = useLoginController();
+
+  const isLoginButtonDisabled = !values.username || !values.password;
   return (
     <>
       <HelmetContainer pageTitle="Login" />
@@ -33,7 +35,9 @@ export default function Login() {
               onChange={handleSetForm}
               type="password"
             />
-            <General.Button>Iniciar Sesión</General.Button>
+            <General.Button disabled={isLoginButtonDisabled}>
+              Iniciar Sesión
+            </General.Button>
           </form>
           <General.Button variant="link" linkTo={RoutesEnum.register}>
             ¿No tienes cuenta?

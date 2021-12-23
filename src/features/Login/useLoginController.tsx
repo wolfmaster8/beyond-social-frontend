@@ -23,9 +23,9 @@ export default function useLoginController() {
       onSubmit: doLogin,
       messages: {
         loading: "Iniciando Sesión",
-        success: "¡Bienvenid@!",
+        success: "¡Bienvenid@! 👋",
       },
     });
 
-  return { handleSetForm, handleSubmitForm };
+  return { handleSetForm, handleSubmitForm, values };
 }

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "content": "Hello World!!!",
+    "createdAt": "2021-12-23T06:44:06.000Z",
+    "updatedAt": "2021-12-23T06:44:06.000Z",
+    "user": {
+      "avatarUrl": "https://www.gravatar.com/avatar/f12e45b864fc9f5202254d156cd202df?d=retro",
+      "id": 5,
+      "username": "wolf",
+      "firstName": "Felipe",
+      "lastName": "Lobo mejia",
+      "email": "email@email.com"
+    },
+    "comments": [],
+    "likes": [
+      {
+        "id": 50,
+        "userId": 1
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "userId": 5,
+    "content": "Mi primer post!",
+    "createdAt": "2021-12-23T06:43:56.000Z",
+    "updatedAt": "2021-12-23T06:43:56.000Z",
+    "user": {
+      "avatarUrl": "https://www.gravatar.com/avatar/f12e45b864fc9f5202254d156cd202df?d=retro",
+      "id": 5,
+      "username": "wolf",
+      "firstName": "Felipe",
+      "lastName": "Lobo mejia",
+      "email": "email@email.com"
+    },
+    "comments": [
+      {
+        "id": 27,
+        "userId": 5,
+        "postId": 26,
+        "content": "mi primer comentario!!!",
+        "createdAt": "2021-12-23T06:44:32.000Z",
+        "updatedAt": "2021-12-23T06:44:32.000Z"
+      }
+    ],
+    "likes": []
+  }
+]

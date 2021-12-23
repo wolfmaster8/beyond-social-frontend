@@ -9,4 +9,8 @@ export default class AuthenticationManager {
   }: UserLogInCredentialsDTO): Promise<UserTokenDTO> {
     return AuthenticationService.login({ username, password });
   }
+
+  public static logout() {
+    AuthenticationService.logout();
+  }
 }

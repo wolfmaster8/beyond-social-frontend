@@ -8,6 +8,7 @@ import General from "../../../../General";
 import { PostContext } from "../../../../../contexts/PostContext";
 import DataDisplay from "../../../../DataDisplay";
 import useUser from "../../../../../hooks/useUser";
+import AuthenticationManager from "../../../../../../managers/AuthenticationManager";
 
 export default function Aside() {
   const { user } = useUser();
@@ -22,7 +23,10 @@ export default function Aside() {
           <DataDisplay.ProfileImage src={user.avatarUrl ?? ""} />
         </Link>
         <General.IconButton onClick={openPostModal} icon={<UilCommentPlus />} />
-        <General.IconButton disabled icon={<UilSignout />} />
+        <General.IconButton
+          icon={<UilSignout />}
+          onClick={AuthenticationManager.logout}
+        />
       </div>
     </AsideStyled>
   );
