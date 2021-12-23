@@ -7,16 +7,18 @@ type ActionItemProps = {
   count: number | string | undefined;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   color?: "red" | "blue";
+  dataCy?: string;
 };
 
 const defaultProps = {
   color: "blue",
+  dataCy: undefined,
 };
 
-function ActionItem({ onClick, count, icon, color }: ActionItemProps) {
+function ActionItem({ onClick, count, icon, color, dataCy }: ActionItemProps) {
   const textColor = color === "blue" ? "text-neutral-600" : "text-red-600";
   return (
-    <ActionItemStyled>
+    <ActionItemStyled data-cy={dataCy}>
       <General.IconButton
         size={32}
         onClick={onClick}
