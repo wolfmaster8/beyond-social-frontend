@@ -10,7 +10,14 @@ import Layout from "../../shared/components/Layout";
 import useRegisterController from "./useRegisterController";
 
 export default function Register() {
-  const { handleSetForm, handleSubmitForm } = useRegisterController();
+  const { handleSetForm, handleSubmitForm, values } = useRegisterController();
+
+  const isLoginButtonDisabled =
+    !values.username ||
+    !values.password ||
+    !values.lastName ||
+    !values.firstName ||
+    !values.email;
   return (
     <>
       <HelmetContainer pageTitle="Registro" />
@@ -56,7 +63,9 @@ export default function Register() {
               onChange={handleSetForm}
               type="password"
             />
-            <General.Button>Registrarse</General.Button>
+            <General.Button disabled={isLoginButtonDisabled}>
+              Registrarse
+            </General.Button>
           </form>
           <General.Button variant="link" linkTo={RoutesEnum.login}>
             ¿Ya tienes cuenta?
